@@ -5,12 +5,47 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import scipy.stats as stats
 
-def feature_graphs(x):
-    for col in x:
-        print(col)
-        ax = sns.histplot(x=col, data=x, kde=True)
-        ax.lines[0].set_color('crimson')
-        plt.show()
+def feature_graphs(train):
+    '''
+    first subplot of bathroom count
+    '''
+    plt.figure(figsize=(10,5))
+    plt.subplot(221)
+    sns.histplot(x=train['bath_count'], data=train)
+    plt.title('Bathroom Count of Single Family Properties')
+    plt.xlabel('Bathroom Count')
+    '''
+    second subplot of bedroom count
+    '''
+    plt.subplot(222)
+    sns.histplot(x=train['bed_count'], data=train)
+    plt.title('Bedroom Count of Single Family Properties')
+    plt.xlabel('Bedhroom Count')
+    '''
+    third subplot of property value
+    '''
+    plt.subplot(223)
+    ax = sns.histplot(x=train['property_value'], data=train, kde=True)
+    ax.lines[0].set_color('crimson')
+    plt.title('Property Values of Single Family Properties')
+    plt.xlabel('Property Value')
+    '''
+    fourth subplot of finished square feet
+    '''
+    plt.subplot(224)
+    ax = sns.histplot(x=train['finished_sq_ft'], data=train, kde=True)
+    ax.lines[0].set_color('crimson')
+    plt.title('Finished Square Feet of Single Family Properties')
+    plt.xlabel('Finished Square Feet')
+    '''
+    adjusting the spacing between the subplots
+    '''
+    plt.subplots_adjust(left=0.1,
+                    bottom=0.1,
+                    right=0.9,
+                    top=1.5,
+                    wspace=0.4,
+                    hspace=0.4)
 
 #first explore questions plots
 def eq1_graphs(df):
