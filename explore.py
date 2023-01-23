@@ -20,7 +20,7 @@ def feature_graphs(train):
     plt.subplot(222)
     sns.histplot(x=train['bed_count'], data=train)
     plt.title('Bedroom Count of Single Family Properties')
-    plt.xlabel('Bedhroom Count')
+    plt.xlabel('Bedroom Count')
     '''
     third subplot of property value
     '''
